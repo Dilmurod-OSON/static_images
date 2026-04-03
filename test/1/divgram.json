@@ -1,209 +1,240 @@
 {
-  "card": {
-    "log_id": "div2_sample_card",
-    "states": [
-      {
-        "state_id": 0,
-        "div": {
-          "items": [
-            {
-              "type": "image",
-              "width": {
-                "type": "fixed",
-                "value": 47
-              },
-              "height": {
-                "type": "fixed",
-                "value": 47
-              },
-              "preload_required": true,
-              "alignment_horizontal": "center",
-              "alignment_vertical": "top",
-              "image_url": "https://github.com/Dilmurod-OSON/static_images/blob/main/starter/globe.png?raw=true",
-              "margins": {
-                "top": 76
-              }
+    "templates": {
+        "div_card": {
+            "type": "container",
+            "margins": {
+                "top": 12,
+                "left": 12,
+                "right": 12,
+                "bottom": 12
             },
-            {
-              "type": "text",
-              "text": "Выбирите язык",
-              "font_size": 20,
-              "width": {
-                "type": "match_parent"
-              },
-              "alignment_horizontal": "center",
-              "alignment_vertical": "top",
-              "margins": {
-                "top": 144
-              },
-              "text_alignment_horizontal": "center",
-              "font_weight": "medium"
-            },
-            {
-              "text": "Далее",
-              "background": [
-                {
-                  "type": "solid",
-                  "color": "#ffffff"
-                }
-              ],
-              "text_color": "#fff",
-              "corners": 26,
-              "type": "_template_button",
-              "width": {
-                "type": "match_parent"
-              },
-              "alignment_horizontal": "center",
-              "alignment_vertical": "bottom",
-              "font_size": 12,
-              "font_weight": "bold",
-              "margins": {
-                "right": 16,
-                "bottom": 19,
-                "left": 16
-              },
-              "text_alignment_horizontal": "center",
-              "paddings": {
-                "top": 9,
-                "right": 28,
-                "bottom": 10,
-                "left": 28
-              }
-            },
-            {
-              "type": "container",
-              "width": {
-                "type": "match_parent"
-              },
-              "height": {
-                "type": "fixed",
-                "value": 200
-              },
-              "alignment_horizontal": "center",
-              "alignment_vertical": "center",
-              "items": [
-                {
-                  "text": "Hello",
-                  "background": [
-                    {
-                      "type": "solid",
-                      "color": "#ffffff"
+            "border": {
+                "corner_radius": 14,
+                "stroke": {
+                    "color": "#666"
+                },
+                "has_shadow": true,
+                "shadow": {
+                    "offset": {
+                        "x": {
+                            "value": 4
+                        },
+                        "y": {
+                            "value": 4
+                        }
                     }
-                  ],
-                  "text_color": "#000000",
-                  "corners": 20,
-                  "type": "_template_button",
-                  "width": {
-                    "type": "match_parent"
-                  },
-                  "alignment_horizontal": "center",
-                  "alignment_vertical": "center",
-                  "margins": {
-                    "right": 16,
-                    "left": 16
-                  }
                 }
-              ]
-            }
-          ],
-          "background": [
+            },
+            "items": [
+                {
+                    "type": "image",
+                    "$image_url": "post_image",
+                    "aspect": {
+                        "ratio": 1
+                    },
+                    "content_alignment_vertical": "top"
+                },
+                {
+                    "type": "container",
+                    "orientation": "horizontal",
+                    "content_alignment_vertical": "center",
+                    "margins": {
+                        "top": 12,
+                        "left": 12,
+                        "right": 12,
+                        "bottom": 12
+                    },
+                    "items": [
+                        {
+                            "type": "text",
+                            "$text": "author",
+                            "font_size": 12,
+                            "ranges": [
+                                {
+                                    "start": 0,
+                                    "$end": "author_prefix_size",
+                                    "font_size": 13,
+                                    "text_color": "#A5A5A5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "container",
+                            "orientation": "horizontal",
+                            "width": {
+                                "type": "wrap_content"
+                            },
+                            "content_alignment_vertical": "center",
+                            "items": [
+                                {
+                                    "type": "text",
+                                    "$text": "likes",
+                                    "width": {
+                                        "type": "wrap_content"
+                                    },
+                                    "font_size": 20,
+                                    "paddings": {
+                                        "right": 7
+                                    }
+                                },
+                                {
+                                    "type": "state",
+                                    "$id": "states_like_id",
+                                    "default_state_id": "disliked",
+                                    "width": {
+                                        "type": "wrap_content"
+                                    },
+                                    "states": [
+                                        {
+                                            "state_id": "disliked",
+                                            "div": {
+                                                "type": "image",
+                                                "image_url": "https://www.svgheart.com/wp-content/uploads/2026/02/heart-01_504-430.png",
+                                                "tint_color": "#293133",
+                                                "tint_mode": "source_atop",
+                                                "width":{
+                                                    "type": "fixed",
+                                                    "value": 25,
+                                                    "unit": "dp"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "$log_id": "add_like_log_id",
+                                                        "$url": "add_like_url"
+                                                    },
+                                                    {
+                                                        "$log_id": "set_liked_log_id",
+                                                        "$url": "set_liked_url"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "state_id": "liked",
+                                            "div":{
+                                                "type": "image",
+                                                "image_url": "https://www.svgheart.com/wp-content/uploads/2026/02/heart-01_504-430.png",
+                                                "width":{
+                                                    "type": "fixed",
+                                                    "value": 25,
+                                                    "unit": "dp"
+                                                },
+                                                "actions": [
+                                                    {
+                                                        "$log_id": "remove_like_log_id",
+                                                        "$url": "remove_like_url"
+                                                    },
+                                                    {
+                                                        "$log_id": "set_dislike_log_id",
+                                                        "$url": "set_dislike_url"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "card": {
+        "timers": [
             {
-              "color": "#f3f3f3",
-              "type": "solid"
+                "id": "ext_likes",
+                "tick_interval": 2000,
+                "tick_actions": [
+                    {
+                        "log_id": "set_ext_likes",
+                        "url": "@{like_counter_1 > 5 ? '' : 'div-action://set_variable?name=like_counter_1&value=@{like_counter_1 + 1}'}"
+                    }
+                ]
             }
-          ],
-          "height": {
-            "type": "match_parent"
-          },
-          "orientation": "overlap",
-          "type": "container"
-        }
-      }
-    ]
-  },
-  "templates": {
-    "_template_lottie": {
-      "type": "gif",
-      "scale": "fit",
-      "extensions": [
-        {
-          "id": "lottie",
-          "params": {
-            "$lottie_url": "lottie_url"
-          }
-        }
-      ],
-      "gif_url": "https://empty"
-    },
-    "_template_button": {
-      "type": "text",
-      "content_alignment_horizontal": "center",
-      "border": {
-        "$corner_radius": "corners"
-      },
-      "paddings": {
-        "bottom": 24,
-        "left": 28,
-        "right": 28,
-        "top": 22
-      },
-      "width": {
-        "type": "wrap_content"
-      }
-    },
-    "_template_close": {
-      "accessibility": {
-        "description": "Закрыть",
-        "mode": "merge",
-        "type": "button"
-      },
-      "actions": [
-        {
-          "log_id": "close_popup",
-          "url": "div-screen://close"
-        }
-      ],
-      "image_url": "https://yastatic.net/s3/home/div/div_fullscreens/cross2.3.png",
-      "tint_color": "#73000000",
-      "type": "image"
-    },
-    "_template_list_item": {
-      "type": "container",
-      "orientation": "horizontal",
-      "items": [
-        {
-          "type": "image",
-          "image_url": "https://yastatic.net/s3/home/div/div_fullscreens/hyphen.4.png",
-          "$tint_color": "list_color",
-          "width": {
-            "type": "fixed",
-            "value": 28,
-            "unit": "sp"
-          },
-          "height": {
-            "type": "fixed",
-            "value": 28,
-            "unit": "sp"
-          },
-          "margins": {
-            "top": 2,
-            "right": 12,
-            "bottom": 2
-          }
-        },
-        {
-          "type": "text",
-          "$text": "list_text",
-          "$text_color": "list_color",
-          "font_size": 24,
-          "line_height": 32,
-          "font_weight": "medium",
-          "width": {
-            "type": "wrap_content",
-            "constrained": true
-          }
-        }
-      ]
+        ],
+        "variables": [
+            {
+                "name": "like_counter_1",
+                "type": "integer",
+                "value": 0
+            },
+            {
+                "name": "like_counter_2",
+                "type": "integer",
+                "value": 123
+            },
+            {
+                "name": "like_counter_3",
+                "type": "integer",
+                "value": 271489
+            }
+        ],
+        "log_id": "divgram",
+        "states": [
+            {
+                "state_id": 0,
+                "div": {
+                    "type": "gallery",
+                    "orientation": "vertical",
+                    "items": [
+                        {
+                            "type": "div_card",
+                            "likes": "@{like_counter_1}",
+                            "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1dP0ujHpqAx5iDJI8SSa0hrQdJ27aLmLRDQ&s",
+                            "author": "by @WEB",
+                            "author_prefix_size": 3,
+                            "states_like_id": "like_state_1",
+                            "visibility_actions": [
+                                {
+                                    "log_id": "card_visible",
+                                    "url": "div-action://timer?id=ext_likes&action=start"
+                                }
+                            ],
+                            "add_like_log_id": "card1.add_like",
+                            "add_like_url": "div-action://set_variable?name=like_counter_1&value=@{like_counter_1 + 1}",
+                            "set_liked_log_id": "card1.set_liked",
+                            "set_liked_url": "div-action://set_state?state_id=0/like_state_1/liked",
+                            "remove_like_log_id": "card1.remove_like",
+                            "remove_like_url": "div-action://set_variable?name=like_counter_1&value=@{like_counter_1 - 1}",
+                            "set_dislike_log_id": "card1.set_dislike",
+                            "set_dislike_url": "div-action://set_state?state_id=0/like_state_1/disliked"
+                        },
+                        {
+                            "type": "div_card",
+                            "likes": "@{like_counter_2}",
+                            "post_image": "https://cdn.prod.website-files.com/5b4a3b3971d099f78f362505/66e70ac90deb4b1129e223b3_641a5ada3dfe39667c3f3ab6_2020-Mclaren-600LT-Spider-Laurel%2520Green-SBM13SAA2LW009015_057.webp",
+                            "author": "owner is Dilmurod",
+                            "author_prefix_size": 8,
+                            "states_like_id": "like_state_2",
+                            "add_like_log_id": "card2.add_like",
+                            "add_like_url": "div-action://set_variable?name=like_counter_2&value=@{like_counter_2 + 1}",
+                            "set_liked_log_id": "card2.set_liked",
+                            "set_liked_url": "div-action://set_state?state_id=0/like_state_2/liked",
+                            "remove_like_log_id": "card2.remove_like",
+                            "remove_like_url": "div-action://set_variable?name=like_counter_2&value=@{like_counter_2 - 1}",
+                            "set_dislike_log_id": "card2.set_dislike",
+                            "set_dislike_url": "div-action://set_state?state_id=0/like_state_2/disliked"
+                        },
+                        {
+                            "type": "div_card",
+                            "likes": "@{like_counter_3}",
+                            "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjoR2qgfesZmbEzX6KBYgovBc0LHx52Hp1Q&s",
+                            "author": "smashed by Azimiddin",
+                            "author_prefix_size": 11,
+                            "states_like_id": "like_state_3",
+                            "add_like_log_id": "card3.add_like",
+                            "add_like_url": "div-action://set_variable?name=like_counter_3&value=@{like_counter_3 + 1}",
+                            "set_liked_log_id": "card3.set_liked",
+                            "set_liked_url": "div-action://set_state?state_id=0/like_state_3/liked",
+                            "remove_like_log_id": "card3.remove_like",
+                            "remove_like_url": "div-action://set_variable?name=like_counter_3&value=@{like_counter_3 - 1}",
+                            "set_dislike_log_id": "card3.set_dislike",
+                            "set_dislike_url": "div-action://set_state?state_id=0/like_state_3/disliked"
+                        }
+                    ]
+                }
+            }
+        ]
     }
-  }
 }

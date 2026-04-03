@@ -1,0 +1,209 @@
+{
+  "card": {
+    "log_id": "div2_sample_card",
+    "states": [
+      {
+        "state_id": 0,
+        "div": {
+          "items": [
+            {
+              "type": "image",
+              "width": {
+                "type": "fixed",
+                "value": 47
+              },
+              "height": {
+                "type": "fixed",
+                "value": 47
+              },
+              "preload_required": true,
+              "alignment_horizontal": "center",
+              "alignment_vertical": "top",
+              "image_url": "https://github.com/Dilmurod-OSON/static_images/blob/main/starter/globe.png?raw=true",
+              "margins": {
+                "top": 76
+              }
+            },
+            {
+              "type": "text",
+              "text": "Выбирите язык",
+              "font_size": 20,
+              "width": {
+                "type": "match_parent"
+              },
+              "alignment_horizontal": "center",
+              "alignment_vertical": "top",
+              "margins": {
+                "top": 144
+              },
+              "text_alignment_horizontal": "center",
+              "font_weight": "medium"
+            },
+            {
+              "text": "Далее",
+              "background": [
+                {
+                  "type": "solid",
+                  "color": "#ffffff"
+                }
+              ],
+              "text_color": "#fff",
+              "corners": 26,
+              "type": "_template_button",
+              "width": {
+                "type": "match_parent"
+              },
+              "alignment_horizontal": "center",
+              "alignment_vertical": "bottom",
+              "font_size": 12,
+              "font_weight": "bold",
+              "margins": {
+                "right": 16,
+                "bottom": 19,
+                "left": 16
+              },
+              "text_alignment_horizontal": "center",
+              "paddings": {
+                "top": 9,
+                "right": 28,
+                "bottom": 10,
+                "left": 28
+              }
+            },
+            {
+              "type": "container",
+              "width": {
+                "type": "match_parent"
+              },
+              "height": {
+                "type": "fixed",
+                "value": 200
+              },
+              "alignment_horizontal": "center",
+              "alignment_vertical": "center",
+              "items": [
+                {
+                  "text": "Hello",
+                  "background": [
+                    {
+                      "type": "solid",
+                      "color": "#ffffff"
+                    }
+                  ],
+                  "text_color": "#000000",
+                  "corners": 20,
+                  "type": "_template_button",
+                  "width": {
+                    "type": "match_parent"
+                  },
+                  "alignment_horizontal": "center",
+                  "alignment_vertical": "center",
+                  "margins": {
+                    "right": 16,
+                    "left": 16
+                  }
+                }
+              ]
+            }
+          ],
+          "background": [
+            {
+              "color": "#f3f3f3",
+              "type": "solid"
+            }
+          ],
+          "height": {
+            "type": "match_parent"
+          },
+          "orientation": "overlap",
+          "type": "container"
+        }
+      }
+    ]
+  },
+  "templates": {
+    "_template_lottie": {
+      "type": "gif",
+      "scale": "fit",
+      "extensions": [
+        {
+          "id": "lottie",
+          "params": {
+            "$lottie_url": "lottie_url"
+          }
+        }
+      ],
+      "gif_url": "https://empty"
+    },
+    "_template_button": {
+      "type": "text",
+      "content_alignment_horizontal": "center",
+      "border": {
+        "$corner_radius": "corners"
+      },
+      "paddings": {
+        "bottom": 24,
+        "left": 28,
+        "right": 28,
+        "top": 22
+      },
+      "width": {
+        "type": "wrap_content"
+      }
+    },
+    "_template_close": {
+      "accessibility": {
+        "description": "Закрыть",
+        "mode": "merge",
+        "type": "button"
+      },
+      "actions": [
+        {
+          "log_id": "close_popup",
+          "url": "div-screen://close"
+        }
+      ],
+      "image_url": "https://yastatic.net/s3/home/div/div_fullscreens/cross2.3.png",
+      "tint_color": "#73000000",
+      "type": "image"
+    },
+    "_template_list_item": {
+      "type": "container",
+      "orientation": "horizontal",
+      "items": [
+        {
+          "type": "image",
+          "image_url": "https://yastatic.net/s3/home/div/div_fullscreens/hyphen.4.png",
+          "$tint_color": "list_color",
+          "width": {
+            "type": "fixed",
+            "value": 28,
+            "unit": "sp"
+          },
+          "height": {
+            "type": "fixed",
+            "value": 28,
+            "unit": "sp"
+          },
+          "margins": {
+            "top": 2,
+            "right": 12,
+            "bottom": 2
+          }
+        },
+        {
+          "type": "text",
+          "$text": "list_text",
+          "$text_color": "list_color",
+          "font_size": 24,
+          "line_height": 32,
+          "font_weight": "medium",
+          "width": {
+            "type": "wrap_content",
+            "constrained": true
+          }
+        }
+      ]
+    }
+  }
+}

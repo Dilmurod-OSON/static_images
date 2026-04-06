@@ -1,0 +1,70 @@
+{
+    "card": {
+        "log_id": "flag_lang",
+        "states": [
+            {
+                "state_id": 0,
+                "div": {
+                    "type":"container",
+                    "orientation": "vertical",
+                    "content_alignment_horizontal": "center",
+                    "margins": {
+                        "top": 0,
+                        "left": 16,
+                        "right": 16,
+                        "bottom": 12
+                    },
+                    "border": {
+                        "corner_radius": 20,
+                        "stroke": {
+                            "color": "#666"
+                        }
+                    },
+                    "items": [
+                        {
+                            "type": "container",
+                            "orientation": "horizontal",
+                            "items": [
+                                {
+                                    "type":"image",
+                                    "image_url": "data:image/png;base64,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",
+                                    "width": {
+                                        "type": "fixed",
+                                        "value": 35,
+                                        "unit": "dp"
+                                    },
+                                    "margins": {
+                                        "top": 12,
+                                        "left": 12,
+                                        "right": 12,
+                                        "bottom": 12
+                                    }
+                                },
+                                {
+                                    "type": "container",
+                                    "content_alignment_vertical": "center",
+                                    "margins": {
+                                        "top": 0,
+                                        "left": 6,
+                                        "right": 12,
+                                        "bottom": 0
+                                    },
+                                    "items": [
+                                        {
+                                            "type": "text",
+                                            "text": "O’zbek"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "Узбекский"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
